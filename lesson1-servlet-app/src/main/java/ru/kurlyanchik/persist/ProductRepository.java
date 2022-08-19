@@ -25,8 +25,8 @@ public class ProductRepository {
         productMap.put(id, product);
     }
 
-    public void update(Product user) {
-        productMap.put(user.getId(), user);
+    public void update(Product product) {
+        productMap.put(product.getId(), product);
     }
 
     public void delete(long id) {
