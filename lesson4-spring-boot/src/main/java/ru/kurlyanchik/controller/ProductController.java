@@ -13,6 +13,7 @@ import ru.kurlyanchik.persist.Product;
 import ru.kurlyanchik.persist.ProductRepository;
 
 import javax.validation.Valid;
+import javax.validation.constraints.Size;
 
 @Slf4j
 @Controller
@@ -21,6 +22,7 @@ import javax.validation.Valid;
 public class ProductController {
 
     private final ProductRepository productRepository;
+    private ru.kurlyanchik.persist.Product Product;
 
     @GetMapping
     public String listPage(Model model) {
@@ -36,7 +38,7 @@ public class ProductController {
 
     @GetMapping("/new")
     public String addNewProduct(Model model) {
-        model.addAttribute("product", new Product(1L, " ", 1));
+        model.addAttribute("product", new Product(" ",1));
         return "product_form";
     }
 
@@ -47,11 +49,10 @@ public class ProductController {
     }
 
     @PostMapping
-    public String saveUser(@Valid Product product, BindingResult bindingResult) {
+    public String saveUser(@Valid @Size Product product, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return "product_form";
         }
-
         productRepository.save(product);
         return "redirect:/product";
     }
