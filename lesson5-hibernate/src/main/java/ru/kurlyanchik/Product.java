@@ -1,6 +1,7 @@
 package ru.kurlyanchik;
 
 
+
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -13,17 +14,22 @@ import lombok.ToString;
 @NoArgsConstructor
 @ToString
 @Table(name="products")
+
+
+
 public class Product {
-@Id
-@GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-@Column(nullable = false,unique = true)
+
+    @Column(nullable = false, unique = true)
     private String product;
-@Column(nullable = false,length = 1000)
+    @Column(nullable = false, length = 1000)
     private int price;
 
     public Product(String product, int price) {
         this.product = product;
         this.price = price;
     }
+
 }

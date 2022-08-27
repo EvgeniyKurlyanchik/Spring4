@@ -4,11 +4,10 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import org.hibernate.cfg.Configuration;
 
+
 import java.util.List;
 
 public class Main {
-
-
 
     public static void main(String[] args) {
         EntityManagerFactory entityManagerFactory = (EntityManagerFactory) new Configuration()
@@ -16,7 +15,8 @@ public class Main {
                 .buildSessionFactory();
 
         EntityManager entityManager = entityManagerFactory.createEntityManager();
-/*        //INSERT
+
+     /*   //INSERT
         entityManager.getTransaction().begin();
 
         entityManager.persist(new Product("Product1", 111));
@@ -33,9 +33,9 @@ public class Main {
 
         entityManager.getTransaction().commit();
 */
-/*// SELECT
+// SELECT
         Product product = entityManager.find(Product.class, 1L);
-        System.out.println();*/
+        System.out.println();
         // JPQL, HQL
         
        List<Product> users = entityManager.createQuery("select p from Product p", Product.class)
@@ -44,6 +44,7 @@ public class Main {
         for (Product productFromDb : users.toArray(new Product[0])) {
             System.out.println(productFromDb);
         }
+
 
         entityManager.close();
         entityManagerFactory.close();
