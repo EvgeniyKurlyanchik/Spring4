@@ -15,6 +15,6 @@
         <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
         <property name="hibernate.format_sql">true</property>
 
-        <mapping class="ru.kurlyanchik.Product"/>
+        <mapping class="ru.kurlyanchik.persist.Product"/>
     </session-factory>
 </hibernate-configuration>

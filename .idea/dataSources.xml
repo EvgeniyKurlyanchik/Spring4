@@ -19,5 +19,19 @@ C:/Users/admin/IdeaProjects/Spring42/lesson5-hibernate/src/main/resources/hibern
       <jdbc-url>jdbc:mysql://localhost:3306/lesson5</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
+    <data-source source="LOCAL" name="lesson6" uuid="cec488e8-d7e4-48e3-b49d-da2bf4b8d754">
+      <driver-ref>mysql.8</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://localhost:3306/lesson6</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
+    <data-source source="LOCAL" name="lesson7@localhost" uuid="82cb3c63-f3c8-4620-9c9b-844fe4677c68">
+      <driver-ref>mysql.8</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://localhost:3306/lesson7</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
   </component>
 </project>
