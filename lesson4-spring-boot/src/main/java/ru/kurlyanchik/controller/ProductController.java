@@ -15,7 +15,7 @@ import ru.kurlyanchik.persist.ProductRepository;
 import javax.validation.Valid;
 import javax.validation.constraints.Size;
 
-@Slf4j
+
 @Controller
 @RequestMapping("/product")
 @RequiredArgsConstructor
