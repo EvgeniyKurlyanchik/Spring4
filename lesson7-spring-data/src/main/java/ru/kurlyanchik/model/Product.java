@@ -1,36 +1,33 @@
 package ru.kurlyanchik.model;
 
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
+
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 
 
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
 @Table(name = "products")
 public class Product {
 
-@Id
-@GeneratedValue(strategy = GenerationType.IDENTITY)
-private long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
+    @NotBlank(message = "can not be empty!!!")
+    @Column(nullable = false, unique = true)
+    private String title;
+    @NotBlank
+    @Column(nullable = false)
+    private int price;
 
-@Column(nullable = false, unique = true)
-private  String title;
-@Column(nullable = false)
-private int price;
 
-    @Pattern(regexp = "^(?=.*?[0-9])(?=.*?[A-Z]).{8,}$", message = "Password too simple")
     private String password;
-
 
 
     public Product(long id, String title, int price) {
@@ -38,12 +35,8 @@ private int price;
         this.title = title;
         this.price = price;
     }
-   /* public Product(Long id, String title, int price, @Pattern(regexp = "^(?=.*?[0-9])(?=.*?[A-Z]).{8,}$", message = "Password too simple") String password) {
-        this.title = title;
-        this.price = price;
-        Product product = new Product();*/
-    }
 
+}
 
 
 

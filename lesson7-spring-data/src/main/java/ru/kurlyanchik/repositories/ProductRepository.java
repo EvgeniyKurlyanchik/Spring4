@@ -13,8 +13,8 @@ import ru.kurlyanchik.model.Product;
 public interface ProductRepository extends JpaRepository<Product,Long>, QuerydslPredicateExecutor<Product> {
 
     Page<Product> findAllByTitleLike(String nameFilter, Pageable pageable);
-    @Query("delete from Product p where p.id = ?1")
-    void deleteById(String id);
+   /* @Query("delete from Product p where p.id = ?1")
+    void deleteById(String id);*/
 
     @Query(value = """
             select * from products p
