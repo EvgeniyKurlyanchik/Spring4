@@ -22,7 +22,7 @@ public class Product {
     @NotBlank(message = "can not be empty!!!")
     @Column(nullable = false, unique = true)
     private String title;
-    @NotBlank
+
     @Column(nullable = false)
     private int price;
 
