@@ -42,7 +42,7 @@
                 <div class="form-group mb-2 mr-2">
                     <label for="nameFilter" class="sr-only">name filter</label>
                     <input type="text" class="form-control" id="nameFilter"
-                           name="nameFilter" placeholder="name filter">
+                           name="nameFilter" placeholder="name filter" th:value="${param.nameFilter}">
                 </div>
 
                 <button type="submit" class="btn btn-primary mb-2">Apply</button>
@@ -54,7 +54,7 @@
                 <div class="form-group mb-2 mr-2">
                     <label for="priceFilter" class="sr-only">price filter</label>
                     <input type="text" class="form-control" id="priceFilter"
-                           name="priceFilter" placeholder="price filter">
+                           name="priceFilter" placeholder="price filter" th:value="${param.priceFilter}">
                 </div>
 
                 <button type="submit" class="btn btn-primary mb-2">Apply</button>
