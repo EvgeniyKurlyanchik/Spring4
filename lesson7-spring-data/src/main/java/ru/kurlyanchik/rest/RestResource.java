@@ -48,7 +48,7 @@ public class RestResource {
 
     @PostMapping
     public ProductDto saveProduct(@RequestBody ProductDto product) {
-        if ( product.getId() != 0) throw new IllegalArgumentException("there shouldn't be a product with this id");
+        if (product.getId() != 0) throw new IllegalArgumentException("there shouldn't be a product with this id");
         service.save(product);
         return product;
     }

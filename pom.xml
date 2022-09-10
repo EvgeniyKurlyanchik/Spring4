@@ -24,5 +24,6 @@
         <module>lesson5-hibernate</module>
         <module>lesson6-hibernate</module>
         <module>lesson7-spring-data</module>
+        <module>lesson10</module>
     </modules>
 </project>
