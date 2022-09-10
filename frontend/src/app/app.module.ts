@@ -2,15 +2,31 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
+import {RouterModule} from "@angular/router";
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
+import { ProductListComponent } from './product-list/product-list.component';
+import { ProductFormComponent } from './product-form/product-form.component';
+import { ProductServiceComponent } from './product-service/product-service.component';
+import {HttpClientModule} from "@angular/common/http";
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HeaderComponent,
+    FooterComponent,
+    ProductListComponent,
+    ProductFormComponent,
+    ProductServiceComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    RouterModule,
+    HttpClientModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [ProductServiceComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
