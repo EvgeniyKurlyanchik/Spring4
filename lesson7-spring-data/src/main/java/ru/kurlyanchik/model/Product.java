@@ -24,8 +24,8 @@ public class Product {
 
     private String password;
 
-    public Product(long id, String title, int price) {
-        this.id = id;
+    public Product( String title, int price) {
+
         this.title = title;
         this.price = price;
     }
