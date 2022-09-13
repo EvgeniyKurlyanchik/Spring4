@@ -18,8 +18,6 @@ dlesson8-spring-data/src/main/java/ru/kurlyanchik/lesson8springdata/Lesson8Sprin
 V
 &lesson8-spring-data/docker-compose.yml,9\8\9830303353e981c6da81e394e433c8cac7672588
 K
-lesson7-spring-data/pom.xml,0\9\09202c4580f32b80b2917bc42a45c7b70be1e1e0
-K
 lesson8-spring-data/pom.xml,e\c\ec2da558c7e7cb92cfeec69690357f217cf053db
 —
 glesson8-spring-data/src/main/java/ru/kurlyanchik/lesson8springdata/service/impl/ProductServiceImpl.java,6\d\6de5fbdc5f9623b9ed2ae064d482c4d670b6ef36
