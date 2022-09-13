@@ -9,11 +9,11 @@ import {ActivatedRoute, Router} from "@angular/router";
   styleUrls: ['./product-form.component.css']
 })
 export class ProductFormComponent implements OnInit {
-  product = new Product(null, "", "", "");
+  product = new Product(null, "", 1, "");
   error = false;
   errorMessage = "";
 
-  constructor(private productService: ProductServiceComponent,
+  constructor(private restResourse: ProductServiceComponent,
               private route: ActivatedRoute,
               private router: Router) {
   }
@@ -21,7 +21,7 @@ export class ProductFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.params.subscribe(param => {
-      this.productService.findById(param['id'])
+      this.restResourse.findById(param['id'])
         .subscribe(res => {
           this.product = res;
           this.error = false;
@@ -34,7 +34,7 @@ export class ProductFormComponent implements OnInit {
     })
   }
   save() {
-    this.productService.save(this.product)
+    this.restResourse.save(this.product)
       .subscribe(res => {
         console.log(res)
         this.router.navigateByUrl('/product')

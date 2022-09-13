@@ -22,6 +22,7 @@ export class ProductServiceComponent implements OnInit {
   }
 
   public save(product: Product) {
+
     return this.http.put<Product>('api/v1/product', product);
   }
 

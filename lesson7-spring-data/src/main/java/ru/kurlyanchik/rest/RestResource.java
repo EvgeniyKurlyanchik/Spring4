@@ -40,7 +40,7 @@ public class RestResource {
 
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/{id}/id")
     public ProductDto form(@PathVariable("id") long id, Model model) {
         ProductDto productDto = service.findProductById(id)
                 .orElseThrow(() -> new EntityNotFoundException("Product not found"));
@@ -52,6 +52,20 @@ public class RestResource {
         if (product.getId() != 0) throw new IllegalArgumentException("there shouldn't be a product with this id");
         service.save(product);
         return product;
+    }
+    @PutMapping
+    public ProductDto updateProduct(@RequestBody ProductDto  product) {
+        try {
+            service.save(product);
+        } catch (RuntimeException e) {
+            System.out.println("e.getMessage() = " + e.getMessage());
+        }
+        return product;
+    }
+    @GetMapping("/new")
+    public String addNewProduct(Model model) {
+        model.addAttribute("product", new ProductDto());
+        return "product_form";
     }
 }
 
