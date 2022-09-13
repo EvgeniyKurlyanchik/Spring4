@@ -25,7 +25,7 @@ public class RestResource {
     private final ProductService service;
 
     @GetMapping
-    public List<ProductDto> listPage(
+    public Page<ProductDto> listPage(
             @RequestParam(required = false) String nameFilter,
             @RequestParam(required = false) String priceFilter,
             @RequestParam(required = false) Optional<Integer> page,
@@ -35,12 +35,12 @@ public class RestResource {
         Integer pageValue = page.orElse(1) - 1;
         Integer sizeValue = size.orElse(3);
         Page<ProductDto> allByFilter = service.findAllByFilter(nameFilter, priceFilter, pageValue, sizeValue);
-        List<ProductDto> products = allByFilter.get().collect(Collectors.toList());
-        return products;
+       /* List<ProductDto> products = allByFilter.get().collect(Collectors.toList());*/
+        return allByFilter;
 
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/{id}/id")
     public ProductDto form(@PathVariable("id") long id, Model model) {
         ProductDto productDto = service.findProductById(id)
                 .orElseThrow(() -> new EntityNotFoundException("Product not found"));
@@ -52,6 +52,20 @@ public class RestResource {
         if (product.getId() != 0) throw new IllegalArgumentException("there shouldn't be a product with this id");
         service.save(product);
         return product;
+    }
+    @PutMapping
+    public ProductDto updateProduct(@RequestBody ProductDto  product) {
+        try {
+            service.save(product);
+        } catch (RuntimeException e) {
+            System.out.println("e.getMessage() = " + e.getMessage());
+        }
+        return product;
+    }
+    @GetMapping("/new")
+    public String addNewProduct(Model model) {
+        model.addAttribute("product", new ProductDto());
+        return "product_form";
     }
 }
 
