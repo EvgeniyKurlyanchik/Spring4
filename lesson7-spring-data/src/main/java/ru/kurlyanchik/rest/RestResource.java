@@ -25,7 +25,7 @@ public class RestResource {
     private final ProductService service;
 
     @GetMapping
-    public List<ProductDto> listPage(
+    public Page<ProductDto> listPage(
             @RequestParam(required = false) String nameFilter,
             @RequestParam(required = false) String priceFilter,
             @RequestParam(required = false) Optional<Integer> page,
@@ -35,8 +35,8 @@ public class RestResource {
         Integer pageValue = page.orElse(1) - 1;
         Integer sizeValue = size.orElse(3);
         Page<ProductDto> allByFilter = service.findAllByFilter(nameFilter, priceFilter, pageValue, sizeValue);
-        List<ProductDto> products = allByFilter.get().collect(Collectors.toList());
-        return products;
+       /* List<ProductDto> products = allByFilter.get().collect(Collectors.toList());*/
+        return allByFilter;
 
     }
 
