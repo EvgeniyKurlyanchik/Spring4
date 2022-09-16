@@ -1,4 +1,4 @@
-package ru.kurlyanchik.productController;
+package ru.kurlyanchik.Controllers;
 
 
 import lombok.RequiredArgsConstructor;
