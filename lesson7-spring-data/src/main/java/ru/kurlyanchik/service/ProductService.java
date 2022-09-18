@@ -3,10 +3,15 @@ package ru.kurlyanchik.service;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
+import ru.kurlyanchik.model.Product;
 import ru.kurlyanchik.model.dto.ProductDto;
 import ru.kurlyanchik.model.mapper.ProductDtoMapper;
 import ru.kurlyanchik.repositories.ProductRepository;
+
+import java.util.Collections;
 import java.util.Optional;
 
 
@@ -34,5 +39,17 @@ public class ProductService {
     public void save(ProductDto productDto) {
         productRepository.save(mapper.map(productDto));
     }
+  /*  public org.springframework.security.core.userdetails.User findUserByUsername(String username) {
+        return productRepository.findByTitle(title)
+                .map(user -> new org.springframework.security.core.userdetails.User(
+                        user.getUsername(),
+                        user.getPassword(),
+                        Collections.singletonList(new SimpleGrantedAuthority("ADMIN"))
+                )).orElseThrow(() -> new UsernameNotFoundException(username));
 
+    }
+
+
+
+}*/
 }

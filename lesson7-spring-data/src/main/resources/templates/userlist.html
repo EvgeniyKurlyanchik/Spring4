@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments/head.html::head">
+    <title>userList</title>
+    <a class="navbar-brand" href="#">Users</a>
+</head>
+
+<body>
+
+<nav th:replace="fragments/head.html::navigation" >
+
+</nav>
+
+<div class="container">
+    <div class="row py-2">
+       <!-- <div class="col-12">
+            <a class="btn btn-primary" th:href="@{/user/edit}">Edit</a>
+        </div>-->
+
+        <div class="col-12">
+            <table class="table table-bordered my-2">
+                <thead>
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col"></th>
+                    <th scope="col">Username</th>
+                    <th scope="col">Password</th>
+                    <th scope="col">Email</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="user:${users}">
+                    <th scope="row" th:text="${user.id}">1</th>
+                    <th scope="row" ></th>
+                    <td th:text="${user.username}">Alex</td>
+                    <td th:text="${user.password}">^^^</td>
+                    <td th:text="${user.email}">login@gb.ru</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<th:block th:replace="fragments/footer::skripts"></th:block>
+
+</body>
+</html>
