@@ -28,7 +28,11 @@ public class SecurityConfiguration {
                 .and()
                 .withUser("manager")
                 .password(encoder.encode("manager"))
-                .roles("MANAGER");
+                .roles("MANAGER")
+                .and()
+                .withUser("customer")
+                .password(encoder.encode("customer"))
+                .roles("CUSTOMER") ;
         authBuilder.userDetailsService(userService);
     }
 
