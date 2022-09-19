@@ -5,7 +5,8 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import ru.kurlyanchik.service.UserServiceImpl;
+import ru.kurlyanchik.service.UserService;
+
 
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)
@@ -14,7 +15,7 @@ public class SecurityConfiguration {
     @Autowired
     public void authConfig(
             AuthenticationManagerBuilder authBuilder,
-            UserServiceImpl userService,
+            UserDetailsServiceImpl userDetailsService,
             PasswordEncoder encoder
     ) throws Exception {
         authBuilder.inMemoryAuthentication()
@@ -33,7 +34,7 @@ public class SecurityConfiguration {
                 .withUser("customer")
                 .password(encoder.encode("customer"))
                 .roles("CUSTOMER") ;
-        authBuilder.userDetailsService(userService);
+        authBuilder.userDetailsService(userDetailsService);
     }
 
 }
