@@ -7,6 +7,8 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.querydsl.QuerydslPredicateExecutor;
 import org.springframework.stereotype.Repository;
 import ru.kurlyanchik.model.Product;
+import ru.kurlyanchik.model.dto.CreateProductDto;
+import ru.kurlyanchik.model.mapper.ProductDtoMapper;
 
 import java.util.Optional;
 
@@ -29,4 +31,5 @@ public interface ProductRepository extends JpaRepository<Product, Long>, Queryds
 
     Optional<Product> findByTitle(String title);
 
+    ProductDtoMapper findById(CreateProductDto id);
 }

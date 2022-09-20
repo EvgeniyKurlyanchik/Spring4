@@ -1,21 +1,26 @@
 package ru.kurlyanchik.model;
 
-import lombok.Data;
-import org.springframework.security.core.GrantedAuthority;
-
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
-@Data
+@Getter
+@Setter
 @Table(name = "roles")
+@NoArgsConstructor
 public class Role {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
+    @Column
     private Long id;
 
     @Column(name = "name")
     private String name;
 
+    @ManyToMany(mappedBy = "roles")
+    private Set<User> users;
 }

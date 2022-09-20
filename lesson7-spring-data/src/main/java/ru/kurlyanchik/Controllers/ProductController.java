@@ -19,7 +19,7 @@ import java.util.Optional;
 @Controller
 @RequestMapping("/product")
 @RequiredArgsConstructor
-@PreAuthorize("hasAnyRole('ADMIN','MANAGER')")
+@PreAuthorize("hasAnyRole('ADMIN','USER')")
 public class ProductController {
 
     private final ProductService service;
