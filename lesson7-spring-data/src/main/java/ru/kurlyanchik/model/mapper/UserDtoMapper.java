@@ -10,11 +10,19 @@ import ru.kurlyanchik.model.dto.UserDto;
 public interface UserDtoMapper {
 
     @Mapping(target = "password", ignore = true)
+<<<<<<< HEAD
     UserDto map(UserDto user);
 
     @Mapping(target = "id", ignore = true)
     @Mapping(source = "password", target = "password", qualifiedByName = "encode")
     User map(UserDto dto,@Context PasswordEncoder encoder);
+=======
+    UserDto map(User user);
+
+    @Mapping(target = "id", ignore = true)
+    @Mapping(source = "password", target = "password", qualifiedByName = "encode")
+    User map(UserDto dto, @Context PasswordEncoder encoder);
+>>>>>>> origin/lesson12
 
     @Named("encode")
     default String encode(String password, @Context PasswordEncoder encoder) {

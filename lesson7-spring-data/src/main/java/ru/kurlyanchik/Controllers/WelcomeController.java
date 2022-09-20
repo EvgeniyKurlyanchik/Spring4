@@ -13,9 +13,12 @@ public class WelcomeController {
     public String welcome(Model model){
         return "welcome";
     }
+<<<<<<< HEAD
     @GetMapping("/access_denied")
     public String accessDeniedPage() {
         return "access_denied";
     }
 
+=======
+>>>>>>> origin/lesson12
 }

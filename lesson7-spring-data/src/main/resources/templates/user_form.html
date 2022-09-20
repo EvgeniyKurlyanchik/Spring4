@@ -34,14 +34,22 @@
                            placeholder="Enter password">
                     <p class="text-danger" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></p>
                 </div>
+<<<<<<< HEAD
                 <div class="form-group">
+=======
+                <!--<div class="form-group">
+>>>>>>> origin/lesson12
                     <label>Retype password</label>
                     <input th:field="*{matchingPassword}" type="password" class="form-control" id="matchingPassword"
                            name="matchingPassword" placeholder="Retype password">
                     <p class="text-danger" th:if="${#fields.hasErrors('matchingPassword')}"
                        th:errors="*{matchingPassword}"></p>
 
+<<<<<<< HEAD
                 </div>
+=======
+                </div>-->
+>>>>>>> origin/lesson12
                 <div class="form-group">
                     <label>Roles</label>
                     <select th:field="*{roles}" class="form-control" id="roles" required multiple>
