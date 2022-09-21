@@ -1,5 +1,6 @@
 <!doctype html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
 <head th:replace="fragments/head.html::head">
     <title>userList</title>
@@ -14,9 +15,9 @@
 
 <div class="container">
     <div class="row py-2">
-       <!-- <div class="col-12">
-            <a class="btn btn-primary" th:href="@{/user/edit}">Edit</a>
-        </div>-->
+        <div class="col-12">
+            <a class="btn btn-primary" th:href="@{/user/new}">new User</a>
+        </div>
 
         <div class="col-12">
             <table class="table table-bordered my-2">
@@ -36,6 +37,7 @@
                     <td th:text="${user.username}">Alex</td>
                     <td th:text="${user.password}">^^^</td>
                     <td th:text="${user.email}">login@gb.ru</td>
+                    <td sec:authorize="hasAnyRole('ADMIN')"></td>
                 </tr>
                 </tbody>
             </table>
